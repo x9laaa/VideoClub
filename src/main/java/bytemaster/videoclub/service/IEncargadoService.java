@@ -8,7 +8,7 @@ public interface IEncargadoService {
 
     public Encargado actualizarEncargdo(int id);
 
-    public List<Encargado> Encargdo();
+    public List<Encargado> listarEncargdo();
 
     public Encargado listarEncargdoID(int idEncargdo);
 
