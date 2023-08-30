@@ -1,6 +1,7 @@
 package bytemaster.videoclub.service.serviceimpl;
 
 import bytemaster.videoclub.entity.Cliente;
+import bytemaster.videoclub.repository.IClienteRepository;
 import bytemaster.videoclub.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,10 @@ import java.util.List;
 @Service("ClienteServiceImpl")
 public class ClienteServiceImpl implements IClienteService {
     @Autowired
+    IClienteRepository objClienterepo;
     @Override
     public Cliente crearCliente(Cliente nuevoCliente) {
-        return null;
+        return objClienterepo.save(nuevoCliente);
     }
 
     @Override
@@ -22,7 +24,7 @@ public class ClienteServiceImpl implements IClienteService {
 
     @Override
     public List<Cliente> listarCliente() {
-        return null;
+        return objClienterepo.findAll();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package bytemaster.videoclub.service.serviceimpl;
 
 import bytemaster.videoclub.entity.Encargado;
+import bytemaster.videoclub.repository.IEncargadoRepository;
 import bytemaster.videoclub.service.IEncargadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,10 @@ import java.util.List;
 @Service("EncargadoServiceImpl")
 public class EncargadoServiceImpl implements IEncargadoService {
     @Autowired
+    IEncargadoRepository objEncargadoRepo;
     @Override
     public Encargado crearEncargdo(Encargado nuevoEncargdo) {
-        return null;
+        return objEncargadoRepo.save(nuevoEncargdo);
     }
 
     @Override
@@ -22,7 +24,7 @@ public class EncargadoServiceImpl implements IEncargadoService {
 
     @Override
     public List<Encargado> listarEncargdo() {
-        return null;
+        return objEncargadoRepo.findAll();
     }
 
     @Override

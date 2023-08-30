@@ -1,6 +1,7 @@
 package bytemaster.videoclub.service.serviceimpl;
 
 import bytemaster.videoclub.entity.Arriendo;
+import bytemaster.videoclub.repository.IArriendoRepository;
 import bytemaster.videoclub.service.IArriendoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +11,11 @@ import java.util.List;
 @Service("ArriendoServiceImpl")
 public class ArriendoServiceImpl implements IArriendoService {
     @Autowired
+    IArriendoRepository objArriendoRepo;
 
     @Override
     public Arriendo crearArriendo(Arriendo nuevoArriendo) {
-        return null;
+        return objArriendoRepo.save(nuevoArriendo);
     }
 
     @Override
@@ -23,7 +25,7 @@ public class ArriendoServiceImpl implements IArriendoService {
 
     @Override
     public List<Arriendo> listarArriendo() {
-        return null;
+        return objArriendoRepo.findAll();
     }
 
     @Override

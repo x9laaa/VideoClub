@@ -1,6 +1,7 @@
 package bytemaster.videoclub.service.serviceimpl;
 
 import bytemaster.videoclub.entity.Pelicula;
+import bytemaster.videoclub.repository.IPeliculaRepository;
 import bytemaster.videoclub.service.IPeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,10 @@ import java.util.List;
 @Service("PeliculaServiceImpl")
 public class PeliculaServiceImpl implements IPeliculaService {
     @Autowired
+    IPeliculaRepository objPeliculaRepo;
     @Override
     public Pelicula crearPelicula(Pelicula nuevaPelicula) {
-        return null;
+        return objPeliculaRepo.save(nuevaPelicula);
     }
 
     @Override
@@ -22,7 +24,7 @@ public class PeliculaServiceImpl implements IPeliculaService {
 
     @Override
     public List<Pelicula> listarPelicula() {
-        return null;
+        return objPeliculaRepo.findAll();
     }
 
     @Override
