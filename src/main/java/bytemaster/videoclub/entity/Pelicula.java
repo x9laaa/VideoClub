@@ -3,13 +3,16 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "peliculas")
 public class Pelicula {
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -19,8 +22,8 @@ public class Pelicula {
     @Column(length = 75)
     private String genero;
 
-    @Column(length = 15)
-    private String Disponibilidad; //(Texto, por ejemplo: "Disponible", "Alquilada", "Reservada")
+    @ManyToMany(mappedBy = "peliculas")
+    private List<Arriendo> arriendos;
 
     @Column(length = 10)
     private double PrecioArriendo; //(Decimal)
