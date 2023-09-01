@@ -19,8 +19,8 @@ public class ArriendoRestController {
 
     }
     @PostMapping
-    public Arriendo actualizarArriendo(@RequestBody int id){
-        return  objArriendoService.actualizarArriendo(id);
+    public Arriendo actualizarArriendo(@RequestBody int id,Arriendo arriendoaActualizar){
+        return  objArriendoService.actualizarArriendo(id, arriendoaActualizar);
 
     }
 
@@ -37,5 +37,10 @@ public class ArriendoRestController {
     @PostMapping
     public void eliminarArriendo(@RequestBody int id){
         objArriendoService.eliminarArriendo(id);
+    }
+
+    @PostMapping
+    public void eliminarArriendo2(@RequestBody Arriendo arriendo){
+        objArriendoService.eliminarArriendo2(arriendo);
     }
 }
