@@ -18,8 +18,8 @@ public class EncargadoRestController {
         return objEncargadoService.crearEncargdo(nuevoEncargado);
     }
     @PostMapping
-    public Encargado actualizarEncargado(@RequestBody int id){
-        return  objEncargadoService.actualizarEncargdo(id);
+    public Encargado actualizarEncargado(@RequestBody int id, Encargado encargado){
+        return  objEncargadoService.actualizarEncargdo(id, encargado);
     }
 
     @GetMapping
@@ -35,5 +35,10 @@ public class EncargadoRestController {
     @PostMapping
     public void eliminarEncargado(@RequestBody int id){
         objEncargadoService.eliminarEncargdo(id);
+    }
+
+    @PostMapping
+    public void eliminarEncargado2(@RequestBody Encargado encargado){
+        objEncargadoService.eliminarEncargdo2(encargado);
     }
 }

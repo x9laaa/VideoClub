@@ -18,8 +18,15 @@ public class EncargadoServiceImpl implements IEncargadoService {
     }
 
     @Override
-    public Encargado actualizarEncargdo(int id) {
-        return null;
+    public Encargado actualizarEncargdo(int id, Encargado encargadoActualizar) {
+        Encargado encargadoEncontrado = objEncargadoRepo.findById(id).orElse(null);
+        encargadoEncontrado.setNombre(encargadoActualizar.getNombre());
+        encargadoEncontrado.setCorreo(encargadoActualizar.getCorreo());
+        encargadoEncontrado.setPass(encargadoActualizar.getPass());
+        encargadoEncontrado.setEdad(encargadoActualizar.getEdad());
+        encargadoEncontrado.setDireccion(encargadoActualizar.getDireccion());
+        encargadoEncontrado.setTelefono(encargadoActualizar.getTelefono());
+        return objEncargadoRepo.save(encargadoEncontrado);
     }
 
     @Override
@@ -29,11 +36,17 @@ public class EncargadoServiceImpl implements IEncargadoService {
 
     @Override
     public Encargado listarEncargdoID(int idEncargdo) {
-        return null;
+        return objEncargadoRepo.findById(idEncargdo).orElse(null);
     }
 
     @Override
     public void eliminarEncargdo(int id) {
+        objEncargadoRepo.deleteById(id);
+
+    }
+    @Override
+    public void eliminarEncargdo2(Encargado encargado) {
+        objEncargadoRepo.delete(encargado);
 
     }
 }
