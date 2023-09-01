@@ -18,22 +18,28 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public Cliente actualizarCliente(int id) {
-        return null;
+    public Cliente actualizarCliente(int id, Cliente clienteactualizar) {
+        Cliente cliente1= objClienterepo.findById(id).orElse(null);
+        cliente1.setNombre(clienteactualizar.getNombre());
+        cliente1.setCorreo(clienteactualizar.getCorreo());
+        return objClienterepo.save(cliente1);
     }
 
     @Override
-    public List<Cliente> listarCliente() {
-        return objClienterepo.findAll();
+    public List<Cliente> listarCliente() {return objClienterepo.findAll();
     }
 
     @Override
     public Cliente listarClienteID(int idCliente) {
-        return null;
+        return objClienterepo.findById(idCliente).orElse(null);
     }
 
     @Override
     public void eliminarCliente(int id) {
-
+        objClienterepo.deleteById(id);
+    }
+    @Override
+    public void eliminarCliente2( Cliente cliente) {
+        objClienterepo.delete(cliente);
     }
 }

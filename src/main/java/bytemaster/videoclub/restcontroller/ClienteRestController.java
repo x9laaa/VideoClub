@@ -20,8 +20,8 @@ public class ClienteRestController {
         return objClienteService.crearCliente(nuevoCliente);
     }
     @PostMapping
-    public Cliente actualizarCliente(@RequestBody int id){
-        return objClienteService.actualizarCliente(id);
+    public Cliente actualizarCliente(@RequestBody int id, Cliente cliente){
+        return objClienteService.actualizarCliente(id, cliente);
     }
     @GetMapping
     public List<Cliente> listarCliente() { return objClienteService.listarCliente(); }
@@ -30,4 +30,8 @@ public class ClienteRestController {
 
     @PostMapping
     public void eliminarCliente(@RequestBody int id){ objClienteService.eliminarCliente(id);}
+
+    @PostMapping
+    public void eliminarCliente2(@RequestBody Cliente cliente){ objClienteService.eliminarCliente2(cliente);}
+
 }
