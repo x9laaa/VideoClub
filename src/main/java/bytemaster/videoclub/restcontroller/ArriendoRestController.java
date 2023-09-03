@@ -18,10 +18,9 @@ public class ArriendoRestController {
         return objArriendoService.crearArriendo(nuevoArriendo);
 
     }
-    @PostMapping
-    public Arriendo actualizarArriendo(@RequestBody int id,Arriendo arriendoaActualizar){
+    @PutMapping("/{id}")
+    public Arriendo actualizarArriendo(@PathVariable int id,@RequestBody Arriendo arriendoaActualizar){
         return  objArriendoService.actualizarArriendo(id, arriendoaActualizar);
-
     }
 
     @GetMapping
@@ -29,17 +28,17 @@ public class ArriendoRestController {
         return objArriendoService.listarArriendo();
     }
 
-    @GetMapping
-    public Arriendo listarArriendoID(int idArriendo){
+    @GetMapping("/{idArriendo}")
+    public Arriendo listarArriendoID(@PathVariable int idArriendo){
         return  objArriendoService.listarArriendoID(idArriendo);
     }
 
-    @PostMapping
-    public void eliminarArriendo(@RequestBody int id){
+    @DeleteMapping("/{id}")
+    public void eliminarArriendo(@PathVariable int id){
         objArriendoService.eliminarArriendo(id);
     }
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarArriendo2(@RequestBody Arriendo arriendo){
         objArriendoService.eliminarArriendo2(arriendo);
     }

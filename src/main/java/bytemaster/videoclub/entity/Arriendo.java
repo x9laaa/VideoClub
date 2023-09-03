@@ -1,5 +1,6 @@
 package bytemaster.videoclub.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,8 @@ public class Arriendo {
     @JoinColumn(name = "encargado_id")
     private Encargado encargado;
 
+
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "arriendo_pelicula",
             joinColumns = @JoinColumn(name = "arriendo_id"),
@@ -33,7 +36,6 @@ public class Arriendo {
 
     private LocalDate fecha;
 
-    @Column(length = 30)
     private int precioTotal;
 
 

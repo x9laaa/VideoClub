@@ -33,12 +33,10 @@ public class ArriendoServiceImpl implements IArriendoService {
     public List<Arriendo> listarArriendo() {
         return objArriendoRepo.findAll();
     }
-
     @Override
     public Arriendo listarArriendoID(int idArriendo) {
         return objArriendoRepo.findById(idArriendo).orElse(null);
     }
-
     @Override
     public void eliminarArriendo(int id) {
         objArriendoRepo.deleteById(id);

@@ -1,7 +1,5 @@
 package bytemaster.videoclub.restcontroller;
 
-
-import bytemaster.videoclub.entity.Arriendo;
 import bytemaster.videoclub.entity.Cliente;
 import bytemaster.videoclub.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +17,19 @@ public class ClienteRestController {
     public Cliente crearCliente(@RequestBody Cliente nuevoCliente){
         return objClienteService.crearCliente(nuevoCliente);
     }
-    @PostMapping
-    public Cliente actualizarCliente(@RequestBody int id, Cliente cliente){
+    @PutMapping("/{id}")
+    public Cliente actualizarCliente(@PathVariable int id,@RequestBody Cliente cliente){
         return objClienteService.actualizarCliente(id, cliente);
     }
     @GetMapping
     public List<Cliente> listarCliente() { return objClienteService.listarCliente(); }
-    @GetMapping
-    public Cliente listarClienteID(int idCliente) { return objClienteService.listarClienteID(idCliente);}
+    @GetMapping("/{idCliente}")
+    public Cliente listarClienteID(@PathVariable int idCliente) { return objClienteService.listarClienteID(idCliente);}
 
-    @PostMapping
-    public void eliminarCliente(@RequestBody int id){ objClienteService.eliminarCliente(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarCliente(@PathVariable int id){ objClienteService.eliminarCliente(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarCliente2(@RequestBody Cliente cliente){ objClienteService.eliminarCliente2(cliente);}
 
 }
