@@ -24,7 +24,6 @@ public class ClienteServiceImpl implements IClienteService {
         cliente1.setCorreo(clienteactualizar.getCorreo());
         return objClienterepo.save(cliente1);
     }
-
     @Override
     public List<Cliente> listarCliente() {return objClienterepo.findAll();
     }
