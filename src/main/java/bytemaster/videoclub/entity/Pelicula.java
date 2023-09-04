@@ -25,7 +25,6 @@ public class Pelicula {
     @ManyToMany(mappedBy = "peliculas")
     private List<Arriendo> arriendos;
 
-    @Column(length = 10)
-    private double PrecioArriendo; //(Decimal)
+    private double precioArriendo; //(Decimal)
 
 }
