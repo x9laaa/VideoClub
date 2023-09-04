@@ -1,5 +1,4 @@
 package bytemaster.videoclub.service.serviceimpl;
-
 import bytemaster.videoclub.entity.Pelicula;
 import bytemaster.videoclub.repository.IPeliculaRepository;
 import bytemaster.videoclub.service.IPeliculaService;
@@ -12,6 +11,7 @@ import java.util.List;
 public class PeliculaServiceImpl implements IPeliculaService {
     @Autowired
     IPeliculaRepository objPeliculaRepo;
+
     @Override
     public Pelicula crearPelicula(Pelicula nuevaPelicula) {
         return objPeliculaRepo.save(nuevaPelicula);
@@ -35,6 +35,7 @@ public class PeliculaServiceImpl implements IPeliculaService {
     public Pelicula listarPeliculasID(int idPelicula) {
         return objPeliculaRepo.findById(idPelicula).orElse(null);
     }
+
     @Override
     public void eliminarPelicula(int id) {
         objPeliculaRepo.deleteById(id);
@@ -43,5 +44,6 @@ public class PeliculaServiceImpl implements IPeliculaService {
     @Override
     public void eliminarPelicula2(Pelicula pelicula) {
         objPeliculaRepo.delete(pelicula);
+
     }
 }

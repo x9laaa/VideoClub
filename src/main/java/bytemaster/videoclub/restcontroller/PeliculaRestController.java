@@ -17,6 +17,7 @@ public class PeliculaRestController {
     public Pelicula crearPelicula(@RequestBody Pelicula nuevoPelicula){
         return objPeliculaService.crearPelicula(nuevoPelicula);
     }
+
     @PutMapping("/{id}")
     public Pelicula actualizarPelicula(@RequestBody int id,@RequestBody Pelicula pelicula){
         return  objPeliculaService.actualizarPelicula(id, pelicula);
