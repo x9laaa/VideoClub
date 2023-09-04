@@ -17,8 +17,8 @@ public class PeliculaRestController {
     public Pelicula crearPelicula(@RequestBody Pelicula nuevoPelicula){
         return objPeliculaService.crearPelicula(nuevoPelicula);
     }
-    @PostMapping
-    public Pelicula actualizarPelicula(@RequestBody int id, Pelicula pelicula){
+    @PutMapping("/{id}")
+    public Pelicula actualizarPelicula(@RequestBody int id,@RequestBody Pelicula pelicula){
         return  objPeliculaService.actualizarPelicula(id, pelicula);
     }
 
@@ -27,13 +27,18 @@ public class PeliculaRestController {
         return objPeliculaService.listarPelicula();
     }
 
-    @GetMapping
-    public Pelicula listarPeliculaID(int idPelicula){
+    @GetMapping("/{idPelicula}")
+    public Pelicula listarPeliculaID(@PathVariable int idPelicula){
         return  objPeliculaService.listarPeliculasID(idPelicula);
     }
 
-    @PostMapping
-    public void eliminarPelicula(@RequestBody int id){
+    @DeleteMapping("/{id}")
+    public void eliminarPelicula(@PathVariable int id){
         objPeliculaService.eliminarPelicula(id);
+    }
+
+    @DeleteMapping
+    public void eliminarPelicula2(@RequestBody Pelicula pelicula){
+        objPeliculaService.eliminarPelicula2(pelicula);
     }
 }
