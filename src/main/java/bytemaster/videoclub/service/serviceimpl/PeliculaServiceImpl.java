@@ -18,8 +18,12 @@ public class PeliculaServiceImpl implements IPeliculaService {
     }
 
     @Override
-    public Pelicula actualizarPelicula(int id) {
-        return null;
+    public Pelicula actualizarPelicula(int id, Pelicula pelicula) {
+        Pelicula peliculaActualizar = objPeliculaRepo.findById(id).orElse(null);
+        peliculaActualizar.setTitulo(pelicula.getTitulo());
+        peliculaActualizar.setGenero(pelicula.getGenero());
+        peliculaActualizar.setPrecioArriendo(pelicula.getPrecioArriendo());
+        return objPeliculaRepo.save(peliculaActualizar);
     }
 
     @Override
@@ -29,11 +33,15 @@ public class PeliculaServiceImpl implements IPeliculaService {
 
     @Override
     public Pelicula listarPeliculasID(int idPelicula) {
-        return null;
+        return objPeliculaRepo.findById(idPelicula).orElse(null);
+    }
+    @Override
+    public void eliminarPelicula(int id) {
+        objPeliculaRepo.deleteById(id);
     }
 
     @Override
-    public void eliminarPelicula(int id) {
-
+    public void eliminarPelicula2(Pelicula pelicula) {
+        objPeliculaRepo.delete(pelicula);
     }
 }

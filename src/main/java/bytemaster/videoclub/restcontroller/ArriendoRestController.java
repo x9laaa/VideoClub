@@ -19,8 +19,8 @@ public class ArriendoRestController {
 
     }
     @PutMapping("/{id}")
-    public Arriendo actualizarArriendo(@PathVariable int id,@RequestBody Arriendo arriendoaActualizar){
-        return  objArriendoService.actualizarArriendo(id, arriendoaActualizar);
+    public Arriendo actualizarArriendo(@PathVariable int id,@RequestBody Arriendo arriendoActualizar){
+        return  objArriendoService.actualizarArriendo(id, arriendoActualizar);
     }
 
     @GetMapping

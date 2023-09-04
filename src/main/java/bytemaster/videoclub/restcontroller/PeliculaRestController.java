@@ -18,8 +18,8 @@ public class PeliculaRestController {
         return objPeliculaService.crearPelicula(nuevoPelicula);
     }
     @PostMapping
-    public Pelicula actualizarPelicula(@RequestBody int id){
-        return  objPeliculaService.actualizarPelicula(id);
+    public Pelicula actualizarPelicula(@RequestBody int id, Pelicula pelicula){
+        return  objPeliculaService.actualizarPelicula(id, pelicula);
     }
 
     @GetMapping
