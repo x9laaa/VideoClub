@@ -13,12 +13,12 @@ public class EncargadoServiceImpl implements IEncargadoService {
     @Autowired
     IEncargadoRepository objEncargadoRepo;
     @Override
-    public Encargado crearEncargdo(Encargado nuevoEncargdo) {
+    public Encargado crearEncargado(Encargado nuevoEncargdo) {
         return objEncargadoRepo.save(nuevoEncargdo);
     }
 
     @Override
-    public Encargado actualizarEncargdo(int id, Encargado encargadoActualizar) {
+    public Encargado actualizarEncargado(int id, Encargado encargadoActualizar) {
         Encargado encargadoEncontrado = objEncargadoRepo.findById(id).orElse(null);
         encargadoEncontrado.setNombre(encargadoActualizar.getNombre());
         encargadoEncontrado.setCorreo(encargadoActualizar.getCorreo());
@@ -30,22 +30,22 @@ public class EncargadoServiceImpl implements IEncargadoService {
     }
 
     @Override
-    public List<Encargado> listarEncargdo() {
+    public List<Encargado> listarEncargado() {
         return objEncargadoRepo.findAll();
     }
 
     @Override
-    public Encargado listarEncargdoID(int idEncargdo) {
+    public Encargado listarEncargadoID(int idEncargdo) {
         return objEncargadoRepo.findById(idEncargdo).orElse(null);
     }
 
     @Override
-    public void eliminarEncargdo(int id) {
+    public void eliminarEncargado(int id) {
         objEncargadoRepo.deleteById(id);
 
     }
     @Override
-    public void eliminarEncargdo2(Encargado encargado) {
+    public void eliminarEncargado2(Encargado encargado) {
         objEncargadoRepo.delete(encargado);
 
     }

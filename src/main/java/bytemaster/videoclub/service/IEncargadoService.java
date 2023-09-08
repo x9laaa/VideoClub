@@ -4,14 +4,14 @@ import bytemaster.videoclub.entity.Encargado;
 import java.util.List;
 
 public interface IEncargadoService {
-    public Encargado crearEncargdo(Encargado nuevoEncargdo);
+    public Encargado crearEncargado(Encargado nuevoEncargado);
 
-    public Encargado actualizarEncargdo(int id, Encargado encargado);
+    public Encargado actualizarEncargado(int id, Encargado encargado);
 
-    public List<Encargado> listarEncargdo();
+    public List<Encargado> listarEncargado();
 
-    public Encargado listarEncargdoID(int idEncargdo);
+    public Encargado listarEncargadoID(int idEncargado);
 
-    public void eliminarEncargdo(int id);
-    public void eliminarEncargdo2(Encargado encargado);
+    public void eliminarEncargado(int id);
+    public void eliminarEncargado2(Encargado encargado);
 }

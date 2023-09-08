@@ -15,30 +15,30 @@ public class EncargadoRestController {
 
     @PostMapping
     public Encargado crearEncargado(@RequestBody Encargado nuevoEncargado){
-        return objEncargadoService.crearEncargdo(nuevoEncargado);
+        return objEncargadoService.crearEncargado(nuevoEncargado);
     }
     @PutMapping("/{id}")
     public Encargado actualizarEncargado(@PathVariable int id,@RequestBody Encargado encargado){
-        return  objEncargadoService.actualizarEncargdo(id, encargado);
+        return  objEncargadoService.actualizarEncargado(id, encargado);
     }
 
     @GetMapping
     public List<Encargado> listarEncargado(){
-        return objEncargadoService.listarEncargdo();
+        return objEncargadoService.listarEncargado();
     }
 
     @GetMapping("/{idEncargado}")
     public Encargado listarEncargadoID(@PathVariable int idEncargado){
-        return  objEncargadoService.listarEncargdoID(idEncargado);
+        return  objEncargadoService.listarEncargadoID(idEncargado);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarEncargado(@PathVariable int id){
-        objEncargadoService.eliminarEncargdo(id);
+        objEncargadoService.eliminarEncargado(id);
     }
 
     @DeleteMapping
     public void eliminarEncargado2(@RequestBody Encargado encargado){
-        objEncargadoService.eliminarEncargdo2(encargado);
+        objEncargadoService.eliminarEncargado2(encargado);
     }
 }
