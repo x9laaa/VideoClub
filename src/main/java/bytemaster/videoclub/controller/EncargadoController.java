@@ -24,13 +24,13 @@ public class EncargadoController {
         model.addAttribute("attributeListarEncargado", lista);
         return "listarEncargados";
     }
-    @GetMapping
+    @GetMapping("/crear")
     public String formularioCrearEncargado() {return "crearEncargado";}
 
     @PostMapping("/crear")
     public String crearEncargado (Encargado encargado){
         objEncargadoService.crearEncargado(encargado);
-        return "redirect:/cliente";
+        return "redirect:/encargado";
     }
     @PostMapping("/eliminar/{id}")
     public String eliminarEncargado(@PathVariable int id){
