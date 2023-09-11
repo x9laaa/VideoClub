@@ -8,18 +8,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cliente">Cliente</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/cliente" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cliente</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/cliente">listar</a></li>
+                            <li><a class="dropdown-item" href="/cliente/crear">Crear</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cliente/crear">Crear Cliente</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/encargado" role="button" data-bs-toggle="dropdown" aria-expanded="false">Encargado</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/encargado">listar</a></li>
+                            <li><a class="dropdown-item" href="/encargado/crear">Crear</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/encargado">Encargado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/encargado/crear">Crear encargado</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
