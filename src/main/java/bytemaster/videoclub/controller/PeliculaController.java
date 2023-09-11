@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/pelicula")
 public class PeliculaController {
     @Autowired
     IPeliculaService objPeliculaService;
@@ -25,7 +25,8 @@ public class PeliculaController {
         return "listarPelicula";
     }
     @GetMapping("/crear")
-    public String formularioCrearPelicula() {return "crearPelicula";}
+    public String formularioCrearPelicula()
+    {return "crearPelicula";}
 
     @PostMapping("/crear")
     public String crearPelicula (Pelicula pelicula){
