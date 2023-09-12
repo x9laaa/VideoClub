@@ -5,41 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cliente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-<header th:insert="~{../static/html/header.html}">  </header>
+<header th:insert="~{../static/html/header.html}"></header>
 <section CLASS="container">
     <h2>Crear Arriendo</h2>
     <br>
     <form method="post" th:action="@{/arriendo/crear}">
-
-        <div>
-            <label for="Cliente" class="form-label">Cliente:</label>
-            <select class="form-control" name="Cliente" id="Cliente" required>
-                <option th:each="cliente :${attributeListarCliente}" th:value="${cliente.id}" th:text="${cliente.nombre}"></option>
-            </select>
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Crear Arriendo</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="Cliente" class="form-label">Cliente:</label>
+                    <select class="form-select" name="Cliente" id="Cliente" required>
+                        <option value="" disabled selected>Seleccionar Cliente</option>
+                        <option th:each="cliente :${attributeListarCliente}" th:value="${cliente.id}"
+                                th:text="${cliente.nombre+' '+cliente.correo}"></option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="Encargado" class="form-label">Encargado:</label>
+                    <select class="form-select" name="Encargado" id="Encargado" required>
+                        <option value="" disabled selected>Seleccionar Encargado</option>
+                        <option th:each="encargado :${attributeListarEncargado}" th:value="${encargado.id}"
+                                th:text="${encargado.nombre}"></option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="fecha" class="form-label">Fecha:</label>
+                    <input type="date" id="fecha" class="form-control" name="fecha" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="peli" class="form-label">Pelicula(s):</label>
+                    <select class="form-select" name="peliculas" id="peli" required multiple>
+                        <option value="" disabled selected>Seleccionar Película(s)</option>
+                        <option th:each="pelicula :${attributeListarPelicula}" th:value="${pelicula.id}" th:text="${pelicula.titulo }"></option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="precio" class="form-label">Precio Total:</label>
+                    <input type="number" id="precio" class="form-control" name="precioTotal" required min="1">
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Crear Arriendo</button>
+            </div>
         </div>
-
-        <div>
-            <label for="Encargado" class="form-label">Encargado:</label>
-            <select class="form-control" name="Encargado" id="Encargado" required>
-                <option th:each="encargado :${attributeListarEncargado}" th:value="${encargado.id}" th:text="${encargado.nombre}"></option>
-            </select>
-        </div>
-
-        <div>
-            <label for="peli" class="form-label">Pelicula:</label>
-            <select class="form-control" name="peliculas" id="peli" required>
-                <option th:each="pelicula :${attributeListarPelicula}" th:value="${pelicula.id}" th:text="${pelicula.titulo }"></option>
-            </select>
-        </div>
-
-
-        <br>
-        <button type="submit">Crear Cliente</button>
     </form>
+
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
