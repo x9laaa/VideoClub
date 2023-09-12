@@ -13,6 +13,17 @@
     <h2>Crear Cliente</h2>
     <br>
     <form method="post" th:action="@{/cliente/crear}">
+
+        <div>
+            <label for="Curso" class="form-label">Curso:</label>
+            <select class="form-control" name="cursoAsignado" id="Curso" required>
+                <option th:each="curso :${atributoListarCursos}" th:value="${curso.id}" th:text="${curso.nombreCurso}"></option>
+            </select>
+        </div>
+
+
+
+
         <div>
             <label for="nombreCliente">Nombre:</label>
             <input type="text" id="nombreCliente" name="nombre" required>

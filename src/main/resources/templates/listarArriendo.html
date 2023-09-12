@@ -15,6 +15,8 @@
         <tr>
             <th>id</th>
             <th>Cliente</th>
+            <th>Encargado</th>
+            <th>Peliculas</th>
             <th>Fecha</th>
             <th>Precio Total</th>
         </tr>
@@ -22,7 +24,13 @@
         <tbody>
         <tr th:each="arriendo:${attributeListarArriendo}">
             <td th:text="${arriendo.id}"></td>
-            <td th:text="${arriendo.cliente}"></td>
+            <td th:text="${arriendo.cliente.nombre}"></td>
+            <td th:text="${arriendo.encargado.nombre}"></td>
+            <td>
+                <ul>
+                    <li th:each="peli : ${arriendo.peliculas}" th:text="${peli.titulo}"></li>
+                </ul>
+            </td>
             <td th:text="${arriendo.fecha}"></td>
             <td th:text="${arriendo.precioTotal}"></td>
             <td>
