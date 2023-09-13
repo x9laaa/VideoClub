@@ -56,4 +56,24 @@ public class ArriendoController {
         objArriendoService.eliminarArriendo(id);
         return "redirect:/arriendo";
     }
+
+    @GetMapping("/editar/{id}")
+    public String formularioEditarArriendo(@PathVariable int id, Model model){
+        List<Pelicula> listaPeli = objPeliculaService.listarPelicula();
+        model.addAttribute("attributePeli",listaPeli);
+        List<Cliente> listaCliente = objClienteService.listarCliente();
+        model.addAttribute("attributeListarCliente", listaCliente);
+        List<Encargado> listaEncargado = objEncargadoService.listarEncargado();
+        model.addAttribute("attributeListarEncargado", listaEncargado);
+        Arriendo arriendo = objArriendoService.listarArriendoID(id);
+        model.addAttribute("attributeArriendo", arriendo);
+        return "editarArriendo";
+    }
+
+    @PostMapping("/editar")
+    public String editarArriendo(@ModelAttribute Arriendo arriendo){
+        objArriendoService.actualizarArriendo(arriendo.getId(),arriendo);
+        return "redirect:/arriendo";
+    }
+
 }

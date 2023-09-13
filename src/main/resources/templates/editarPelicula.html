@@ -28,6 +28,7 @@
             <div>
                 <label for="genero" class="form-label">Genero:</label>
                 <select id="genero" class="form-control" name="genero">
+                    <option value="" disabled>Seleccionar genero</option>
                     <option value="accion" th:selected="${attributePelicula.genero == 'accion'}">Acción</option>
                     <option value="comedia" th:selected="${attributePelicula.genero == 'comedia'}">Comedia</option>
                     <option value="drama" th:selected="${attributePelicula.genero == 'drama'}">Drama</option>
