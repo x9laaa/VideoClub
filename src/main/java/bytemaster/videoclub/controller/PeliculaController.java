@@ -5,10 +5,7 @@ import bytemaster.videoclub.service.IPeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +33,18 @@ public class PeliculaController {
     @PostMapping("/eliminar/{id}")
     public String eliminarPelicula(@PathVariable int id){
         objPeliculaService.eliminarPelicula(id);
+        return "redirect:/pelicula";
+    }
+    @GetMapping("/editar/{id}")
+    public String formularioEditarPelicula(@PathVariable int id, Model model){
+        Pelicula pelicula = objPeliculaService.listarPeliculasID(id);
+        model.addAttribute("attributePelicula", pelicula);
+        return "editarPelicula";
+    }
+
+    @PostMapping("/editar")
+    public String editarPelicula(@ModelAttribute Pelicula pelicula){
+        objPeliculaService.actualizarPelicula(pelicula.getId(),pelicula);
         return "redirect:/pelicula";
     }
 

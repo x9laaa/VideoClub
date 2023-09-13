@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar pelicula</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="~{../static/html/header.html}"></header>
+<section CLASS="container">
+    <div class="container">
+        <form method="post" th:action="@{/pelicula/editar}">
+
+            <div>
+                <label for="id" class="col-sm-3 col-form-label"></label>
+                <input type="hidden" class="form-control" id="id" name="id" th:value="${attributePelicula.id}">
+            </div>
+
+            <div>
+                <label for="nombrePeli" class="form-label">Titulo de pelicula:</label>
+                <input type="text" class="form-control" id="nombrePeli" name="titulo"
+                       th:value="${attributePelicula.titulo}" required>
+            </div>
+
+            <div>
+                <label for="genero" class="form-label">Genero:</label>
+                <select id="genero" class="form-control" name="genero">
+                    <option value="accion" th:selected="${attributePelicula.genero == 'accion'}">Acción</option>
+                    <option value="comedia" th:selected="${attributePelicula.genero == 'comedia'}">Comedia</option>
+                    <option value="drama" th:selected="${attributePelicula.genero == 'drama'}">Drama</option>
+                    <option value="ciencia_ficcion" th:selected="${attributePelicula.genero == 'ciencia_ficcion'}">Ciencia Ficción</option>
+                    <option value="fantasia" th:selected="${attributePelicula.genero == 'fantasia'}">Fantasía</option>
+                    <option value="terror" th:selected="${attributePelicula.genero == 'terror'}">Terror</option>
+                    <option value="aventura" th:selected="${attributePelicula.genero == 'aventura'}">Aventura</option>
+                    <option value="romance" th:selected="${attributePelicula.genero == 'romance'}">Romance</option>
+                    <option value="animacion" th:selected="${attributePelicula.genero == 'animacion'}">Animación</option>
+                    <option value="documental" th:selected="${attributePelicula.genero == 'documental'}">Documental</option>
+                </select>
+
+            </div>
+
+            <div>
+                <label for="precio" class="form-label">Precio de pelicula:</label>
+                <input type="number" class="form-control" id="precio" name="precioArriendo"
+                       th:value="${attributePelicula.precioArriendo}" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </form>
+    </div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

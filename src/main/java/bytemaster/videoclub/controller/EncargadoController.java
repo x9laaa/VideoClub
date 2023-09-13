@@ -18,13 +18,13 @@ public class EncargadoController {
     @GetMapping
     public String ListarEncargado (Model model){
         List<Encargado> lista = objEncargadoService.listarEncargado();
-        model.addAttribute("attributeListarEncargado", lista);
+        model.addAttribute("attributeListarEncargado",lista);
         return "listarEncargados";
     }
     @GetMapping("/crear")
     public String formularioCrearEncargado() {return "crearEncargado";}
 
-    @PostMapping("/crear")
+    @PostMapping("/creaeditarPelicular")
     public String crearEncargado (Encargado encargado){
         objEncargadoService.crearEncargado(encargado);
         return "redirect:/encargado";
@@ -37,7 +37,7 @@ public class EncargadoController {
     @GetMapping("/editar/{id}")
     public String formularioEditarEncargado(@PathVariable int id, Model model){
         Encargado encargado = objEncargadoService.listarEncargadoID(id);
-        model.addAttribute("attributeEncargado",encargado);
+        model.addAttribute("attributeEncargado", encargado);
         return "editarEncargado";
     }
 
