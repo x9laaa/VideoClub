@@ -21,7 +21,7 @@
                     <select class="form-select" name="Cliente" id="Cliente" required>
                         <option value="" disabled selected>Seleccionar Cliente</option>
                         <option th:each="cliente :${attributeListarCliente}" th:value="${cliente.id}"
-                                th:text="${cliente.nombre+' '+cliente.correo}"></option>
+                                th:text="${cliente.nombre}"></option>
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -38,10 +38,10 @@
                 </div>
                 <div class="col-md-6">
                     <label for="peli" class="form-label">Pelicula(s):</label>
-                    <select class="form-select" name="peliculas" id="peli" required multiple>
-
+                    <select class="form-select" name="peliculas" id="peli" required>
                    ç     <option value="" disabled selected>Seleccionar Película(s)</option>
-                        <option th:each="pelicula :${attributeListarPelicula}" th:value="${pelicula.id}" th:text="${pelicula.titulo }"></option>
+                        <option th:each="pelicula :${attributeListarPelicula}" th:value="${pelicula.id}"
+                                th:text="${pelicula.titulo }"></option>
                     </select>
                 </div>
                 <div class="col-md-6">

@@ -24,7 +24,7 @@ public class EncargadoController {
     @GetMapping("/crear")
     public String formularioCrearEncargado() {return "crearEncargado";}
 
-    @PostMapping("/creaeditarPelicular")
+    @PostMapping("/crear")
     public String crearEncargado (Encargado encargado){
         objEncargadoService.crearEncargado(encargado);
         return "redirect:/encargado";
