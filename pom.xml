@@ -4,15 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>Clinica_odontologica</artifactId>
         <version>3.2.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>bytemaster</groupId>
-    <artifactId>VideoClub</artifactId>
+    <groupId>Clinica_odontologica</groupId>
+    <artifactId>Clinica_odontologica</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>VideoClub</name>
-    <description>VideoClub</description>
+    <name>Clinica_odontologica</name>
+    <description>Clinica_odontologica</description>
     <properties>
         <java.version>20</java.version>
     </properties>
